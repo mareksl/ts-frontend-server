@@ -43,3 +43,7 @@ export const get = async (req: Request, res: Response) => {
     res.status(500).send();
   }
 };
+
+export const notFound = (req: Request, res: Response) => {
+  res.render('404.hbs', { route: req.originalUrl });
+};

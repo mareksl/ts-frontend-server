@@ -14,5 +14,6 @@ app.set('view engine', 'hbs');
 
 app.get('/', viewController.get);
 app.get('/gallery/:id', viewController.getImage);
+app.get('*', viewController.notFound);
 
 export default app;

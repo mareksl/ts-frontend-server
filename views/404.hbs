@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>404 Not Found</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Monoton" rel="stylesheet">
+</head>
+
+<body>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            font-family: 'Montserrat';
+
+            background: #03003b;
+            background: linear-gradient(145deg, #03003b 0%, #00ff7c 100%);
+        }
+
+        h1 {
+            padding: 0;
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .main {
+            height: 100%;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, .2);
+        }
+
+        .section {
+            padding: 4rem;
+            background-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 0.5rem 1rem -0.5rem #03003b;
+        }
+    </style>
+    <main class="main">
+        <section class="section">
+            <h1>Not Found</h1>
+            <p>Could not find {{route}}</p>
+            <a href="/">Go back home</a>
+        </section>
+    </main>
+</body>
+
+</html>
