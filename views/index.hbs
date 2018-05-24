@@ -15,7 +15,7 @@
         <h1 class="site-header__title">
             <a class="site-header__link link" href="#">{{title}}</a>
         </h1>
-        <button class="site-header__toggle-menu site-header__toggle-menu--hidden">
+        <button class="button site-header__toggle-menu site-header__toggle-menu--hidden">
             <!-- <img class="icon" src="./img/icons/menu.svg" alt="menu"> -->
             ☰
         </button>
@@ -43,6 +43,22 @@
         </section>
         <section id="about" class="content-section">
             <h2>About Us</h2>
+            <div class="about">
+                <p class="about__paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eleifend posuere odio sed pulvinar. Suspendisse dui mi, iaculis
+                    a dui ut, feugiat imperdiet risus. Morbi eu ipsum nisi. Nam dignissim posuere ante ac vestibulum. Mauris
+                    tempus tellus nec magna ornare porttitor. Suspendisse sem sem, pulvinar in luctus id, viverra id urna.
+                    Vestibulum eu feugiat ligula. Ut ante justo, porttitor in hendrerit eu, fermentum nec ipsum. Vestibulum
+                    nunc ligula, laoreet at pretium sit amet, volutpat sed ex.
+                </p>
+                <p class="about__paragraph">
+                    Nunc bibendum ligula et odio accumsan dignissim. Praesent porta turpis at enim rhoncus, sed mattis sapien efficitur. Cras
+                    tristique malesuada sollicitudin. Cras ut faucibus turpis. Nulla id est posuere, suscipit velit at, bibendum
+                    leo. Nam scelerisque turpis quis molestie luctus. Nulla id tellus bibendum, feugiat elit vitae, iaculis
+                    turpis. Nulla fermentum ultricies vehicula. Aenean porta quis dui quis pellentesque. Vivamus at mauris
+                    ut leo rhoncus iaculis vitae vel dolor. Sed sollicitudin viverra eros non mattis.
+                </p>
+            </div>
             <ul class="cards-container">
                 {{#each memberList.members}}
                 <li class="profile-card">
@@ -61,17 +77,17 @@
         </section>
         <section id="gallery" class="content-section gallery-section">
             <h2>Gallery</h2>
-            <div class="gallery">
+            <div class="gallery gallery--no-js">
                 {{#each galleryImageList.images}}
-                <a href="gallery/{{_id}}" class="gallery__wrapper">
+                <a href="gallery/{{_id}}" title="{{title}}" class="gallery__wrapper">
                     <img class="gallery__image" src="gallery/{{_id}}" alt="{{title}}">
                 </a>
                 {{/each}}
             </div>
         </section>
-        <section id="events" class="content-section">
+        <section id="events" class="content-section events">
             <h2>Events</h2>
-            <ul class="event-list">
+            <ul class="event-list" id="eventList">
                 {{#each eventList.events}}
                 <li class="event-list__item">
                     <h3 class="event-list__title">
@@ -82,6 +98,7 @@
                 </li>
                 {{/each}}
             </ul>
+            <button class="button event-list__button">Show More</button>
         </section>
 
         <section id="contact" class="content-section">
@@ -122,8 +139,7 @@
     <footer class="site-footer">
         <small>&copy; Marek Sładczyk 2018</small>
     </footer>
-    <script src="js/masonry.pkgd.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/bundle.js"></script>
 </body>
 
 </html>
