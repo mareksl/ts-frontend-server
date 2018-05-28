@@ -35,8 +35,6 @@ export const get = async (req: Request, res: Response) => {
   const getContacts = axios.get(`${restApi}/contacts`);
   const getImages = axios.get(`${restApi}/gallery`);
 
-  const page: number = parseInt(req.query['page']) || 0;
-
   try {
     const [events, members, contacts, images] = await Promise.all([
       getEvents,
@@ -44,15 +42,14 @@ export const get = async (req: Request, res: Response) => {
       getContacts,
       getImages
     ]);
-    const filteredEvents = {
+
+    const filteredEvents: { upcoming: Event[]; past: Event[] } = {
       upcoming: events.data.events.filter((event: Event) => {
         return event.date >= Date.now();
       }),
-      past: events.data.events
-        .filter((event: Event) => {
-          return event.date < Date.now();
-        })
-        .slice(page * eventsPerPage, (page + 1) * eventsPerPage)
+      past: events.data.events.filter((event: Event) => {
+        return event.date < Date.now();
+      })
     };
 
     res.render('index.hbs', {

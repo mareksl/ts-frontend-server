@@ -87,7 +87,26 @@
         </section>
         <section id="events" class="content-section events">
             <h2>Events</h2>
+            {{#equal eventList.upcoming.length 0}}
+            <p class="events__empty-message">No upcoming events</p>
+            {{else}}
+            <h3>Upcoming Events</h3>
             <ul class="event-list" id="eventList">
+                {{#each eventList.upcoming}}
+                <li class="event-list__item">
+                    <h3 class="event-list__title">
+                        <a class="link" href="{{link}}">{{description}}</a>
+                    </h3>
+                    <span class="event-list__location">{{location}}</span>
+                    <span class="event-list__date">{{date date}}</span>
+                </li>
+                {{/each}}
+            </ul>
+            {{/equal}} {{#equal eventList.past.length 0}}
+            <p class="events__empty-message">No past events</p>
+            {{else}}
+            <h3>Past Events</h3>
+            <ul class="event-list event-list--with-pagination" id="pastEventsList">
                 {{#each eventList.past}}
                 <li class="event-list__item">
                     <h3 class="event-list__title">
@@ -98,7 +117,11 @@
                 </li>
                 {{/each}}
             </ul>
-            <button class="button event-list__button">Show More</button>
+            <div class="event-list__pagination">
+                <button class="button event-list__button" id="eventsShowLess">Show Less</button>
+                <button class="button event-list__button" id="eventsShowMore">Show More</button>
+            </div>
+            {{/equal}}
         </section>
 
         <section id="contact" class="content-section">
